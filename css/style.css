@@ -1,6 +1,18 @@
-#title {
-    color: blue;
-    text-shadow: 5px 5px 5px 5px red;
+#home-title {
+    color: salmon;
+    text-shadow: 5px 5px 5px 5px red; 
+}
+
+#home-header {
+
+}
+
+#home-main {
+
+}
+
+#home-footer {
+
 }
 
 .container {
@@ -13,9 +25,5 @@
 
 .box {
     border: red solid thin;
-    border-width: 10px;
-
-
-
-    
+    border-width: 10px;   
 }
