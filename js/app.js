@@ -86,10 +86,9 @@ for(let i = 0; i < locations.length; i++){
        
     }
     
-    // After all iterations of hours array, code runs below, which adds another <li> 
-
+    // After all iterations of hours array, code runs below, which adds another <li>
     let li = document.createElement('li');
-    li.innerText = `Total Cookies Sold in ${location.name}: ${total} Cookies`;
+    li.innerText = `${location.name} Total: ${total} Cookies`;
     list.appendChild(li);
     // console.log(total);
 }
