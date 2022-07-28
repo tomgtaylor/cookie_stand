@@ -2,11 +2,11 @@
 
 //------------------------------------------ Global variables / functions
 
+    // creates an array of hours.
 let hours = [`6am`, `7am`, `8am`, `9am`, `10am`, `11am`, `12pm`, `1pm`, `2pm`, `3pm`, `4pm`, `5pm`, `6pm`, `7pm`];
+
 //--------------------
 function randomNumberGen(minimum, maximum) {
-    // minimum = Math.ceil(minimum);
-    // maximum = Math.floor(maximum);
     return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
 }
 // ------------------------------------------ Objects (by location)
@@ -56,15 +56,16 @@ let locations = [seattle, tokyo, dubai, paris, lima];
 for(let i = 0; i < locations.length; i++){
     let location = locations[i];
     let list = document.getElementById(location.name.toLowerCase());
+
         //nested for loop going through hours from left to right in array "hours"
     for(let j = 0; j < hours.length; j++){
-        
+
         let hour = hours[j];
-        
+
         let randomNum = randomNumberGen(location.minimum, location.maximum);
-        let avgCookies = location.avgCookiesPerHour * randomNum;
+        let avgCookies = Math.round(location.avgCookiesPerHour * randomNum);
         console.log(hour, randomNum, avgCookies);
-        
+
         let li = document.createElement('li');
         li.innerText = `${hour}: ${avgCookies} cookies`;
         list.appendChild(li);
