@@ -1,0 +1,21 @@
+#title {
+    color: blue;
+    text-shadow: 5px 5px 5px 5px red;
+}
+
+.container {
+    border: blue solid thin;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.box {
+    border: red solid thin;
+    border-width: 10px;
+    justify-content: space-;
+
+
+    
+}
