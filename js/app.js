@@ -5,7 +5,7 @@
     // creates an array of hours.
 let hours = [`6:00 am`, `7:00 am`, `8:00 am`, `9:00 am`, `10:00 am`, `11:00 am`, `12:00 pm`, `1:00 pm`, `2:00 pm`, `3:00 pm`, `4:00 pm`, `5:00 pm`, `6:00 pm`, `7:00 pm`];
 
-//--------------------
+//-------------------- 
 
 function randomNumberGen(minimum, maximum) {
     return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
@@ -24,6 +24,8 @@ function Store (name, minimum, maximum, avgCookiesPerHour) {
     this.avgCookiesPerHour = avgCookiesPerHour;
     this.totalSales = [];  // Adds up total cookies sold per location.
     this.hourlySales = []; //
+    this.totalSalesPerHour = 0;
+
     locations.push(this);
 }
 
@@ -33,68 +35,163 @@ let seattle = new Store('Seattle', 23, 65, 6.3);
 let tokyo = new Store('Tokyo', 3, 24, 1.2);
 let dubai = new Store('Dubai', 11, 38, 3.7);
 let paris = new Store('Paris', 20, 38, 2.3);
-let Lima = new Store('Lima', 2, 16, 4.6);
+let lima = new Store('Lima', 2, 16, 4.6);
 
 // console.log(locations); // 
 
 //-----------------------------------------
+    
 // for loop iterates through an array of "locations" that stores location objects, [];
-
 for(let i = 0; i < locations.length; i++) {
-
-    let location = locations[i];
-    let total = 0;
+        let location = locations[i];
+        
+        let total = 0;
         // creates an id to link variable "table location" to HTML.
-    let tableLocations = document.getElementById("table-body"); 
-    let tableRow = document.createElement('tr');    // Creates table row element <tr>
-    let locationName = document.createElement('th');   //table header per location
+        let tableLocations = document.getElementById("table-body"); 
+        let tableRow = document.createElement('tr');    // Creates table row element <tr>
+        let locationName = document.createElement('th');   //table header per location
+        
+        locationName.innerText = `${location.name}`;
+        tableLocations.appendChild(tableRow);
+        tableRow.appendChild(locationName);
+        //------------------------------------
+        for (let j = 0; j <hours.length; j++) {     // loops through each hour in hours array.
+            
+            let hour = hours[i];
+            
+            let randomNum = randomNumberGen(location.minimum, location.maximum);
+            let avgCookies = Math.round(location.avgCookiesPerHour * randomNum);
+            location.hourlySales.push(avgCookies);
+            
+            total += avgCookies;
+            location.totalSales = total;
+            
+            let hourlyData = document.createElement('td');
+            hourlyData.innerText = `${avgCookies}`;
+            tableRow.appendChild(hourlyData);
+            
+        }
+        
+        let locationTotal = document.createElement('td');
+        locationTotal.innerText = `${total}`;
+        tableRow.appendChild(locationTotal);  //pushes in total cookies sold per location
+                
+    }
+    
+console.log(seattle);
 
-    locationName.innerText = `${location.name}`;
-    tableLocations.appendChild(tableRow);
-    tableRow.appendChild(locationName);
+//----------------------------------------------------------------------- Creates an array with all object locations' hourlySales data.
 
-    for (let j = 0; j <hours.length; j++) {
+let tableFooter = document.getElementById('table-footer');
+let tableRow = document.createElement('tr');    // Table row for the Total per hour for all locations.
+let totalTitle = document.createElement('th'); // Table header for "Total" title.
+totalTitle.innerText = 'Total';
+tableFooter.appendChild(tableRow);
+tableRow.appendChild(totalTitle);
 
-        let hour = hours[i];
+let totalHourlyArray = []; //---------------------------- Not used to display data in html, but could be used. 
+let dailyTotal = 0;
 
-        let randomNum = randomNumberGen(location.minimum, location.maximum);
-        let avgCookies = Math.round(location.avgCookiesPerHour * randomNum);
-        location.hourlySales.push(avgCookies);
+//------------------------------------------------------------------------ Nested 'for loops' calculating the sum of each location sales per hour.
 
-        total += avgCookies;
-        location.totalSales = total;
+for (let j = 0; j < hours.length; j++){
 
-        let hourlyData = document.createElement('td');
-        hourlyData.innerText = `${avgCookies}`;
-        tableRow.appendChild(hourlyData);
+    let hourlyTotal = 0;
+    
+    for (let i = 0; i < locations.length; i++){
 
+        hourlyTotal += locations[i].hourlySales[j];
+        dailyTotal += locations[i].hourlySales[j];      
     }
 
-    let locationTotal = document.createElement('td');
-    locationTotal.innerText = `${total}`;
-    tableRow.appendChild(locationTotal);  //pushes in total cookies sold per location
-
-    
+    totalHourlyArray.push(hourlyTotal);
+    let tableFooter = document.getElementById('table-footer');
+    let totalCookiesPerHour = document.createElement('td');
+    totalCookiesPerHour.innerText = `${hourlyTotal}`;  
+    tableRow.appendChild(totalCookiesPerHour);
 }
 
+//--------------------------------------------------- Creates <td> element for the daily total, and appends it to the row.
+
+let dailyTotals = document.createElement('td');
+dailyTotals.innerText = `${dailyTotal}`;  
+tableRow.appendChild(dailyTotals);
+
 // console.log(seattle.hourlySales);
+
+//------------------------------
+
+// console.log(totalHourlyArray);
+// console.log(dailyTotal);
+
+// let newHourlyArray = [locations[0].hourlySales, locations[1].hourlySales, locations[2].hourlySales, locations[3].hourlySales, locations[4].hourlySales];
+// let sumIndexes = newHourlyArray[0] + newHourlyArray[1] + newHourlyArray[2] + newHourlyArray[3] + newHourlyArray[4];
+// console.log(sumIndexes);
+// let newHourlyArray = [];
+// let sum = seattle.hourlySales[0] + tokyo.hourlySales[0] + dubai.hourlySales[0] + paris.hourlySales[0] + lima.hourlySales[0];
+// newHourlyArray.push(sum);
+// let sum = [];
+// for (let x = 0; x < newHourlyArray.length; x++)
+//     for (let y = 0; y < location)
+
+// // console.log(sum);
+// // console.log(newHourlyArray);
+
+// console.log(newHourlyArray);
 
 //------------------------------------------------------------------------
 // Table Footer Row. Create Total cookies per hour.
 
-    let tableFooter = document.getElementById('table-footer');
-    let tableRow = document.createElement('tr');    // Table row for the Total per hour for all locations.
-    let totalTitle = document.createElement('th'); // Table header for "Total" title.
-    totalTitle.innerText = 'Total';
-    tableFooter.appendChild(tableRow);
-    tableRow.appendChild(totalTitle);
 
+
+
+
+
+// for(let x = 0; x < newHourlyArray.length; x++) {
+    
+// }
+
+
+
+// for (let j = 0; j < hours.length; j++){
+//     for (let x = 0; x < locations[i].length; x++)
+//     let totalHourly = 0;
+    
+// }
 
 // console.log(seattle);
 
+    // function 
+// function calculateSales(i) {
+//     let hourlyTotal = 0;
+//     let dailyTotal = 0;
+//     for(let j = 0; j < hours.length; j++) {
+//         let hourlyTotal = 0;
+//         for(let i = 0; i <locations.length; i++) {
+//             hourlyTotal += locations[i].hourlySales[j];
+//             allTotal += locations[i].hourlySales[j];                        
+//         }
+//         dailyTotal += locations[i]
+//     }
+    
+// }
 
+// calculateSales();
 
+// let dailyTotal = 0;
 
+// for (let j = 0; j < hours.length; j++){
+//     for(let i = 0, x = 0; i < locations.length, x < locations.hourlySales.length; i++, x++){
+        
+//         hourlyTotal += locations[i].hourlySales[j];
+//         allTotals[j] += locations[i].hourlySales[j];
+
+//         }
+    
+//     let hourlyTotal = 0;
+//         // dailyTotal += locations[i].daily;
+//     }
+//     allTotals.push(dailyTotal);
 //     //nested for loop iterates through array "hours"
 //     for(let j = 0; j < hours.length; j++){
         
