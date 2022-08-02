@@ -1,3 +1,20 @@
+table {
+    background-color: lightgray;
+    box-shadow: 0px 0px 5px 5px aquamarine;
+}
+
+thead {
+    background-color: salmon;
+}
+
+tbody {
+    background-color: aqua;
+}
+
+tfoot {
+    background-color: yellow;
+}
+
 #home-title {
     color: salmon;
     text-shadow: 5px 5px 5px 5px red; 
