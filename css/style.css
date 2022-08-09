@@ -17,7 +17,7 @@ header {
 #div-logo {
 
     justify-content: left;
-    border: blue thin solid;
+    /* border: blue thin solid; */
     margin-top: 2em;
     margin-left: 2em;
     width: 550px;
