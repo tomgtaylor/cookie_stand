@@ -14,48 +14,117 @@
     </header>
     <hr>
     <main>
-        <div id="container">
-            <div class="box">
-                <h3>SEATTLE</h3>
-                <ul id="seattle">
-                    
-                </ul>
-            </div>
+        <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>6:00 am</th>
+                <th>7:00 am</th>
+                <th>8:00 am</th>
+                <th>9:00 am</th>
+                <th>10:00 am</th>
+                <th>11:00 am</th>
+                <th>12:00 pm</th>
+                <th>1:00 pm</th>
+                <th>2:00 pm</th>
+                <th>3:00 pm</th>
+                <th>4:00 pm</th>
+                <th>5:00 pm</th>
+                <th>6:00 pm</th>
+                <th>7:00 pm</th>
+                <th>Daily Location Total</th>
+              </tr>
+            </thead>
+<!-- -------------------------------------------------------------- -->            
+            <tbody id="table-body"></tbody>
+<!-- -------------------------------------------------------------- -->            
             
-            <div class="box">
-                <h3>TOKYO</h3>
-                <ul id="tokyo">
-                    
-                </ul>
-            </div>
+            <tfoot id="table-footer"> </tfoot>    
+        </table> 
+        <br><br>
+
+    <form id="add-location">
+
+        <fieldset>
+            <p>
+            <legend> Add New Location </legend> <br>
+    <!-- ---------------------------------------------------------------- -->            
+                <label> 
+                    <input type="text" name="location" placeholder="Location Name">
+                </label>
+            </p>
+    <!-- ---------------------------------------------------------------- -->
             
-            <div class="box">
-                <h3>DUBAI</h3>
-                <ul id="dubai" >
-                    
-                </ul>
-            </div>
-        
-            <div class="box">
-                <h3>PARIS</h3>
-                <ul id="paris">
-                    
-                </ul>
-            </div>
-        
-            <div class="box">
-                <h3>LIMA</h3>
-                <ul id="lima">
-                    
-                </ul>                
-            </div>
-        </div>
+                <label>
+                    <input type="number" name="minimum" placeholder="Minimum Customers">
+                </label>            
+    <!-- ---------------------------------------------------------------- -->
+            <p>
+                <label>
+                    <input type="number" name="maximum" placeholder="Maximum Customers">
+                </label>
+            </p>
+    <!-- ---------------------------------------------------------------- -->       
+            <p>Select Average Sales / Customer (0, 1, 2, 3, 4, 5) </p>
+            <p>                    
+                <label> 0
+                    <input type="range" min="0" max="5" name="avgsales" > 5
+                </label> 
+            </p>
+     <!-- ---------------------------------------------------------------- -->
+            <p>
+                <label>
+                    <input type="submit" id=""> 
+                </label>
+            </p>
+            
+        </fieldset>
+    
+    </form>
+
     </main>
     <footer>
         <hr id="footer-hr">
         <p>&copy Tom Gray</p>
     </footer>
-
+    
     <script src="js/app.js"></script>
 </body>
 </html>
+
+<!-- Div container and div boxes per location. Used in Lab 06. -->
+
+<!-- <div id="container">
+    <div class="box">
+        <h3>SEATTLE</h3>
+        <ul id="seattle">
+            
+        </ul>
+    </div>
+    
+    <div class="box">
+        <h3>TOKYO</h3>
+        <ul id="tokyo">
+            
+        </ul>
+    </div>
+    
+    <div class="box">
+        <h3>DUBAI</h3>
+        <ul id="dubai" >
+            
+        </ul>
+    </div>
+    <div class="box">
+        <h3>PARIS</h3>
+        <ul id="paris">
+            
+        </ul>
+    </div>
+    <div class="box">
+        <h3>LIMA</h3>
+        <ul id="lima">
+            
+        </ul>                
+    </div>
+</div> -->
