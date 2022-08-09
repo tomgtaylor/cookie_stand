@@ -9,73 +9,88 @@
 </head>
 <body>
 
-    <div>
-        Locations
-    </div>
-    <div>
-        Hours open
-    </div>
-    <div></div>
-    <div></div>
-
-
-<!-- Create a Form -->
-
-    <!-- Step 1: Create form Element -->
-    <form id="logform"></form>
-    <!-- Step 2: Create inputs - HTML -->
-    <input type="text" name ="userText" id="" />
-    <input type="submit" >
-
-    <form ie="manyInputs">
-        <label for="textBox">Text for Input            
-            <input type="text" name="" id="textBox" placeholder="Type here" />
-        </label>
-    </form>
-
-    <br>
-    <br>
-    <label>
-        Number 
-        <input type="number">
-    </label>
-    <hr>
-    <label>
-        Password input
-        <input type="password" value="test">
-    </label>
-
-    <br>
-
-    <form id="foodOrder">
-        <legend>Name for ORder</legend>
-        <label>
-            Name:
-            <input type="text" name="name" >
-        </label>
-        <label>
-            <input type="radio" name="icecreamFlavor" value="chocolate" checked>
-            Chocolate
-        </label>
-        <label>
-            <input type="radio" name="icecreamFlavor" value="vanilla">
-            Vanilla
-        </label>
-    </form>
-
-<!--  -->
-
+  
     <header id="home-header"> 
-        <h1 id="home-title">Salmon Cookies</h1>
-        <img src="img/salmon.png">
+        <div id="header-stuff">
+            <div id="div-logo">            
+                <img id="salmon-logo" src="img/salmon.png">
+            </div>
+            <div id="div-title">            
+                <h1 id="home-title">Salmon Cookies</h1>
+            </div>
+        </div>
     </header> 
-    <hr>
+    <hr id="hr-header1">
     <a href="sales.html"> Sales Page</a>
     
     <main id="home-main">
+        <br><br>
+        <div id="div-table-info">            
+            <table id="table-info">
+                <thead>
+                    <tr>
+                        <th>Locations</th>
+                        <th>Hours</th>
+                        <th>Contact</th>
+                        <th>Etc.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Seattle</th>
+                        <td>6:00 am-7:00 pm</td>
+                        <td>seattle@salmon.com</td>
+                        <td>Don't email us...ever!</td>
+                    </tr>
+                    <tr>
+                        <th>Tokyo</th>
+                        <td>6:00 am-7:00 pm</td>
+                        <td>tokyo@salmon.com</td>
+                        <td>You won't like our cookies!</td>
+                    </tr>
+                    <tr>
+                        <th>Dubai</th>
+                        <td>6:00 am-7:00 pm</td>
+                        <td>dubai@salmon.com</td>
+                        <td>Hi from Dubai. Bye.</td>
+                    </tr>
+                    <tr>
+                        <th>Paris</th>
+                        <td>6:00 am-7:00 pm</td>
+                        <td>paris@salmon.com</td>
+                        <td>We smoke cigarettes, and salmon.</td>
+                    </tr>
+                    <tr>
+                        <th>Lima</th>
+                        <td>6:00 am-7:00 pm</td>
+                        <td>lima@salmon.com</td>
+                        <td>It's a place, not a bean...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr id="hr-header2">
+            <h2 id="merch"> Check out the merchandise below</h2>
+            <div id="container1">
+                <img class="images1" src="/img/family.jpg">
+                <img class="images1" src="/img/cutter.jpeg">
+            <img class="images1" src="/img/frosted-cookie.jpg">
+        </div>
+
+        <div id="container2">
+            <img class="images2" src="/img/chinook.jpg">
+            <img class="images2" src="/img/shirt.jpg">
+            <img class="images2" src="/img/fish.jpg">
+        </div>
+
+
     </main>
 
-    <footer id="home-footer"></footer>
+    <footer id="home-footer">
+        <hr id="footer-hr">
+        <p>&copy Tom Gray</p>
+    </footer>
 
     <script src="js/app.js"></script>
 
